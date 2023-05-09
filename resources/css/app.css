@@ -1,0 +1,7 @@
+*{   
+    outline: unset;    
+    background: unset;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
