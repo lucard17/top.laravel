@@ -30,13 +30,7 @@ class Article extends Component
             'newsArticle.is_published' => ['boolean'],
         ];
     }
-    public function render()
-    {
-        return view('livewire.news.article')
-            ->extends('main')
-            ->section('content');
-    }
-
+   
     public function edit()
     {
         if ($this->isEdit) {
@@ -109,6 +103,12 @@ class Article extends Component
             $this->newsArticle = NewsArticle::find($id);
         }
 
+    } public function render()
+    {
+        return view('livewire.news.article')
+            ->extends('main')
+            ->section('content');
     }
+
 
 }
