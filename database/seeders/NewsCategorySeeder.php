@@ -13,16 +13,17 @@ class NewsCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = [
-            ['name' => 'Category 1'],
-            ['name' => 'Category 2'],
-            ['name' => 'Category 3'],
-            ['name' => 'Category 4'],
+        NewsCategory::factory()->count(5)->create();
+        // $categories = [
+        //     ['name' => 'Category 1'],
+        //     ['name' => 'Category 2'],
+        //     ['name' => 'Category 3'],
+        //     ['name' => 'Category 4'],
 
-        ];
-        foreach ($categories as $category) {
-            NewsCategory::create($category);
-        }
+        // ];
+        // foreach ($categories as $category) {
+        //     NewsCategory::create($category);
+        // }
 
     }
 }

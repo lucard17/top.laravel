@@ -20,4 +20,8 @@ class NewsArticle extends Model
     {
         return $this->belongsTo(NewsCategory::class, 'news_category_id');
     }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

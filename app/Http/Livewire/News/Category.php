@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\News;
 
 use App\Models\NewsCategory;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class Category extends Component
@@ -17,7 +18,7 @@ class Category extends Component
                 'string',
                 'min:5',
                 'max:255',
-                \Illuminate\Validation\Rule::unique('news_categories','name')->ignore($this->category->id),
+                Rule::unique('news_categories','name')->ignore($this->category->id),
             ]
         ];
     }
