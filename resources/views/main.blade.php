@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -17,9 +17,11 @@
     <body --}} <div class="max-w-4xl mx-auto">
         <header class="h-12 bg-slate-900 text-slate-100 px-8">
             <nav class="flex flex-row h-full items-center gap-4">
-                <a href="{{ route('home') }}">News</a>
-                <a href="{{ route('news.categories') }}">Categories</a>
-                @auth<a href="{{ route('news.articles') }}" class="ms-auto">My articles</a> @endauth
+                <a href="{{ route('home') }}" class="hover:underline">{{ __('news') }}</a>
+                <a href="{{ route('news.categories') }}" class="hover:underline">Categories</a>
+                @auth<a href="{{ route('news.articles') }}" class="ms-auto hover:underline">My articles</a> @endauth
+                {{ Session::get('locale') }}
+                <livewire:language-switch />
                 @guest
                 <a href="{{ route('auth',['action'=>'login']) }}" class="px-2 py-1 font-semibold text-slate-50 border border-slate-50 
                     hover:bg-slate-50 hover:text-slate-950 ms-auto">Login</a>
