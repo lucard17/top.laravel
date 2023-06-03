@@ -56,7 +56,7 @@
             <p><a href="{{ route('news.article',['id'=>$newsArticle->id]) }}">{{ $newsArticle->body }}</a></p>
             {{-- Category --}}
             <div class="text-sm text-slate-500 pt-2">
-                <a href="{{ url("news/?category=".$newsArticle->category->id) }}">Category: {{
+                <a href="{{ url("news/?category=".$newsArticle->category->id) }}">{{ __('category') }}: {{
                     $newsArticle->category->name }}</a>
             </div>
         </div>

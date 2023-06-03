@@ -1,5 +1,6 @@
 {{-- {{ dd($categories) }} --}}
 <div>
+    <h2 class="text-3xl "> {{ __("categories") }} </h2>
     @admin
     <div class="flex items-center ">
         <input class="border border-e-0 block flex-1  px-2 py-1" type="text" wire:model.debounce.500ms='name'

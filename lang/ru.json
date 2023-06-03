@@ -1,3 +1,18 @@
 {
-    "news" : "Новости"
+    "news": "Новости",
+    "category": "Категория",
+    "categories": "Категории",
+    "myArticles": "Мои статьи",
+    "logout": "Выйти",
+    "login": "Вход",
+    "register": "Регистрация",
+    "Your articles": "Ваши статьи",
+    "There are no articles": "Нет статей",
+
+    "auth.login": "Войти",
+    "auth.register": "Зарегистрироваться",
+    "name": "Имя",
+    "password": "Пароль",
+    "confirm password": "Подтвердить пароль",
+    "end": "end"
 }

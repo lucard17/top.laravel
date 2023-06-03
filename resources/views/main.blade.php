@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ App::getLocale() }}">
 
 <head>
     <meta charset="UTF-8">
@@ -9,30 +9,33 @@
     @livewireStyles
     @vite('resources/css/app.css')
     <link rel="shortcut icon" href="{{ asset ('favicon.ico') }}">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class='bg-slate-950 text-slate-100'>
-    {{--
-
-    <body --}} <div class="max-w-4xl mx-auto">
+    <div class="max-w-4xl mx-auto">
         <header class="h-12 bg-slate-900 text-slate-100 px-8">
             <nav class="flex flex-row h-full items-center gap-4">
                 <a href="{{ route('home') }}" class="hover:underline">{{ __('news') }}</a>
-                <a href="{{ route('news.categories') }}" class="hover:underline">Categories</a>
-                @auth<a href="{{ route('news.articles') }}" class="ms-auto hover:underline">My articles</a> @endauth
-                {{ Session::get('locale') }}
-                <livewire:language-switch />
+                <a href="{{ route('news.categories') }}" class="hover:underline"> {{ __('categories') }}</a>
+                @auth
+                    <a href="{{ route('news.articles') }}" class="hover:underline"> {{ __('myArticles') }}</a> 
+                    <span class='ms-auto'>{{ auth()->user()->name }}</span>
+                @endauth
+                <div @guest class="ms-auto"@endguest>
+                    <livewire:language-switch/>
+                </div>
                 @guest
                 <a href="{{ route('auth',['action'=>'login']) }}" class="px-2 py-1 font-semibold text-slate-50 border border-slate-50 
-                    hover:bg-slate-50 hover:text-slate-950 ms-auto">Login</a>
+                    hover:bg-slate-50 hover:text-slate-950">{{ __('login') }}</a>
                 <a href="{{ route('auth',['action'=>'register']) }}" class="px-2 py-1 font-semibold text-slate-50 border border-slate-50 
-                    hover:bg-slate-50 hover:text-slate-950">Register</a>
+                    hover:bg-slate-50 hover:text-slate-950">{{ __('register') }}</a>
                 @endguest
                 @auth
-                <span class=''>{{ auth()->user()->name }}</span>
+                
                 <a href="{{ route('auth',['action'=>'logout']) }}" class="px-2 py-1 font-semibold text-slate-50 border border-slate-50 
                     hover:bg-slate-50 hover:text-slate-950">
-                    Logout
+                    {{ __('logout') }}
                 </a>
                 @endauth
             </nav>

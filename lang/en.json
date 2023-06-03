@@ -1,3 +1,19 @@
 {
-    "news" : "News"
+    "news": "News",
+    "category": "Category",
+    "categories": "Categories",
+    "myArticles": "My articles",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "Your articles": "Your articles",
+    "There are no articles": "There are no articles",
+
+    "auth.login": "Login",
+    "auth.register": "Register",
+    "name": "Name",
+    "password": "Password",
+    "confirm password": "Confirm password",
+    "end": "end"
+
 }

@@ -17,8 +17,18 @@ class LocaleCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // $locale = $request->session()->get('locale');
+        $languages = ['en', 'ru'];
         $locale = Session::get('locale');
+        if (!$locale) {
+            $acceptLanguage = $request->header("accept-language");
+            foreach ($languages as $language) {
+                if (str($acceptLanguage)->startsWith($language)) {
+                    $locale = $language;
+                    break;
+                }
+            }
+        }
+        // $locale = $request->session()->get('locale');
         if ($locale) {
             App::setLocale($locale);
             // dd(App::getLocale());
