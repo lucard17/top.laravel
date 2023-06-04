@@ -8,7 +8,18 @@
             </svg>
         </button>
     </div>
+    <div class="flex gap-4">
+        @if ($category)
+        <button class="flex items-center group cursor-pointer" wire:click="resetCategory">
+            <span>{{__('category')}}: {{ $categoryName }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-4 h-4 opacity-0 group-hover:opacity-100">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        @endif
 
+    </div>
     @if(!count($newsArticles))
     <p class="mt-8">{{ __("There are no articles") }}</p>
     @endif

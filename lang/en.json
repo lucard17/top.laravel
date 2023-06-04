@@ -14,6 +14,7 @@
     "name": "Name",
     "password": "Password",
     "confirm password": "Confirm password",
+    "author": "Author",
     "end": "end"
 
 }

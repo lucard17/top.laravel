@@ -14,5 +14,6 @@
     "name": "Имя",
     "password": "Пароль",
     "confirm password": "Подтвердить пароль",
+    "author": "Автор",
     "end": "end"
 }
