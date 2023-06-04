@@ -1,8 +1,8 @@
 {{-- {{ dd($categories) }} --}}
 <div>
-    <h2 class="text-3xl "> {{ __("categories") }} </h2>
+    <h2 class="text-3xl mb-16"> {{ __("categories") }} </h2>
     @admin
-    <div class="flex items-center ">
+    <div class="flex items-center">
         <input class="border border-e-0 block flex-1  px-2 py-1" type="text" wire:model.debounce.500ms='name'
             placeholder="Input Category Name">
         <button wire:click="add" class="p-1 border text-slate-50 hover:bg-slate-50 hover:text-slate-950">

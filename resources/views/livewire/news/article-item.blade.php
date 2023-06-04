@@ -10,8 +10,11 @@
 
         </div>
         {{-- Author.name --}}
-        <a href="{{ url('news/?user='.$newsArticle->user->id) }}" class="text-sm text-slate-500 font-semibold) }} "
-            class="block">{{ $newsArticle->user->name }}</a>
+        <span class="text-sm text-slate-500 cursor-pointer font-semibold"
+            wire:click="$emitUp('userSelected', {{ $newsArticle->user->id }})">
+            {{ $newsArticle->user->name }}
+        </span>
+
         {{-- time --}}
         <span class="text-sm text-slate-500 block">{{ $newsArticle->created_at->diffForHumans() }}</span>
         {{-- is_published --}}
@@ -56,8 +59,11 @@
             <p><a href="{{ route('news.article',['id'=>$newsArticle->id]) }}">{{ $newsArticle->body }}</a></p>
             {{-- Category --}}
             <div class="text-sm text-slate-500 pt-2">
-                <a href="{{ url("news/?category=".$newsArticle->category->id) }}">{{ __('category') }}: {{
-                    $newsArticle->category->name }}</a>
+                <span wire:click='$emitUp("categorySelected", {{ $newsArticle->category->id }})'
+                    class='cursor-pointer'>{{ __('category') }}: {{
+                    $newsArticle->category->name }}</span>
+                {{-- <a href="{{ url("news/?category=".$newsArticle->category->id) }}">{{ __('category') }}: {{
+                    $newsArticle->category->name }}</a> --}}
             </div>
         </div>
         <div class="flex-shrink-0">

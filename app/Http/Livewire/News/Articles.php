@@ -6,27 +6,29 @@ use App\Models\NewsArticle;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Livewire\WithPagination;
 
 class Articles extends Component
 {
-
-    public $newsArticles;
+    use WithPagination;
+    private $newsArticles;
     protected $listeners = ['deleteArticle' => 'deleteArticle'];
     public function mount()
     {
         // $this->search = $search;
-        $this->getArticles();
+        
 
     }
     public function getArticles()
     {
         // http://127.0.0.1:8000/news/?category=1
-        $this->newsArticles = NewsArticle::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        $this->newsArticles = NewsArticle::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc');
+        return $this->newsArticles;
     }
     public function render()
     {
         // dd(request()->query());
-        return view('livewire.news.articles')
+        return view('livewire.news.articles',['newsArticles' => $this->getArticles()->paginate(10)])
             ->extends('main')
             ->section('content');
     }
